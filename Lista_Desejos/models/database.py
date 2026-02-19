@@ -11,6 +11,7 @@ DB_PATH = os.getenv("DATABASE", "./data/tarefas.sqlite3")
 
 def init_db(db_path: str = DB_PATH) -> None:
     """Inicializa o banco de dados criando a tabela de desejos se não existir."""
+    os.makedirs(os.path.dirname(db_path), exist_ok=True)
     with connect(db_path) as conn:
         conn.execute(
             """
