@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="hero-section">
+    <div class="hero-card glass-card text-center p-5">
+        <div class="hero-icon mb-3">
+            <i class="bi bi-collection-play-fill"></i>
+        </div>
+        <h2 class="hero-title">Bem-vindo ao <span class="gradient-text">Must Watch</span></h2>
+        <p class="hero-subtitle mt-3">
+            Organize seus livros, filmes, séries e documentários em um só lugar.
+            <br>Nunca mais esqueça o que você quer assistir ou ler!
+        </p>
+
+        {% if total and total > 0 %}
+        <p class="hero-stat mt-3">
+            <i class="bi bi-bookmark-star"></i>
+            Você tem <strong>{{ total }}</strong> {{ 'item' if total == 1 else 'itens' }} na sua lista
+        </p>
+        {% endif %}
+
+        <a href="{{ url_for('listar_desejos') }}" class="btn btn-glow mt-4">
+            <i class="bi bi-arrow-right-circle"></i> Ver minha lista
+        </a>
+    </div>
+</section>
+{% endblock %}

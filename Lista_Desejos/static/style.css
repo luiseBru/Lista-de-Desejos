@@ -1,0 +1,352 @@
+/* ══════════════════════════════════════════════════════════
+   Must Watch — Dark Glassmorphism Theme
+   ══════════════════════════════════════════════════════════ */
+
+:root {
+    --bg-start: #0f0c29;
+    --bg-mid: #302b63;
+    --bg-end: #24243e;
+    --glass-bg: rgba(255, 255, 255, 0.06);
+    --glass-border: rgba(255, 255, 255, 0.12);
+    --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
+    --text-primary: #e8e6f0;
+    --text-muted: #9b97b0;
+    --accent: #a78bfa;
+    --accent-glow: rgba(167, 139, 250, 0.45);
+    --danger: #f87171;
+    --success: #34d399;
+    --info: #60a5fa;
+    --font: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    --radius: 16px;
+    --transition: .3s cubic-bezier(.4, 0, .2, 1);
+}
+
+/* ── Reset & Base ──────────────────────────────────────── */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html, body {
+    min-height: 100vh;
+    margin: 0;
+    font-family: var(--font);
+    color: var(--text-primary);
+    background: linear-gradient(135deg, var(--bg-start), var(--bg-mid), var(--bg-end));
+    background-attachment: fixed;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+main { flex: 1; }
+
+a { color: var(--accent); text-decoration: none; }
+a:hover { color: #c4b5fd; }
+
+::selection {
+    background: var(--accent);
+    color: #fff;
+}
+
+/* ── Glass Navbar ──────────────────────────────────────── */
+
+.glass-nav {
+    background: var(--glass-bg);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border-bottom: 1px solid var(--glass-border);
+}
+
+.glass-nav .navbar-brand {
+    color: var(--accent) !important;
+    font-size: 1.25rem;
+    letter-spacing: -.5px;
+}
+
+.glass-nav .nav-link {
+    color: var(--text-primary) !important;
+    font-weight: 500;
+    font-size: .9rem;
+    transition: color var(--transition);
+}
+
+.glass-nav .nav-link:hover {
+    color: var(--accent) !important;
+}
+
+/* ── Glass Card ────────────────────────────────────────── */
+
+.glass-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius);
+    box-shadow: var(--glass-shadow);
+    transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.glass-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
+}
+
+/* ── Page Title ────────────────────────────────────────── */
+
+.page-title {
+    font-weight: 700;
+    font-size: 1.75rem;
+    letter-spacing: -.5px;
+    color: var(--text-primary);
+}
+
+/* ── Hero Section (home) ───────────────────────────────── */
+
+.hero-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 55vh;
+}
+
+.hero-card {
+    max-width: 560px;
+    width: 100%;
+}
+
+.hero-icon {
+    font-size: 3rem;
+    color: var(--accent);
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50%      { transform: translateY(-10px); }
+}
+
+.hero-title {
+    font-weight: 700;
+    font-size: 1.8rem;
+}
+
+.gradient-text {
+    background: linear-gradient(135deg, var(--accent), #f472b6);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero-subtitle {
+    color: var(--text-muted);
+    font-size: 1rem;
+    line-height: 1.7;
+}
+
+.hero-stat {
+    font-size: .95rem;
+    color: var(--accent);
+}
+
+/* ── Glow Button ───────────────────────────────────────── */
+
+.btn-glow {
+    background: linear-gradient(135deg, var(--accent), #7c3aed);
+    color: #fff;
+    border: none;
+    padding: .55rem 1.5rem;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: .9rem;
+    transition: box-shadow var(--transition), transform var(--transition);
+}
+
+.btn-glow:hover {
+    color: #fff;
+    box-shadow: 0 0 20px var(--accent-glow);
+    transform: translateY(-1px);
+}
+
+/* ── Custom Inputs ─────────────────────────────────────── */
+
+.custom-input,
+.custom-input:focus {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid var(--glass-border);
+    color: var(--text-primary);
+    border-radius: 10px;
+    transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+.custom-input:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 .2rem var(--accent-glow);
+}
+
+.custom-input::placeholder {
+    color: var(--text-muted);
+}
+
+.form-label {
+    font-weight: 500;
+    font-size: .85rem;
+    color: var(--text-muted);
+}
+
+/* ── Desejo Card ───────────────────────────────────────── */
+
+.desejo-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.desejo-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 4px; height: 100%;
+    background: linear-gradient(180deg, var(--accent), #7c3aed);
+    border-radius: 4px 0 0 4px;
+    opacity: 0;
+    transition: opacity var(--transition);
+}
+
+.desejo-card:hover::before,
+.card-editing::before {
+    opacity: 1;
+}
+
+.card-editing {
+    border-color: var(--accent);
+    box-shadow: 0 0 16px var(--accent-glow);
+}
+
+.desejo-titulo {
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--text-primary);
+}
+
+.badge-categoria {
+    background: linear-gradient(135deg, rgba(167, 139, 250, .25), rgba(244, 114, 182, .2));
+    color: var(--accent);
+    font-weight: 500;
+    font-size: .75rem;
+    padding: .35em .7em;
+    border-radius: 8px;
+}
+
+.priority-stars {
+    font-size: .75rem;
+}
+
+.desejo-actions {
+    display: flex;
+    gap: .5rem;
+}
+
+.desejo-actions .btn {
+    border-radius: 8px;
+    font-size: .8rem;
+    transition: transform var(--transition);
+}
+
+.desejo-actions .btn:hover {
+    transform: scale(1.08);
+}
+
+/* ── Card Section Title ────────────────────────────────── */
+
+.card-section-title {
+    font-weight: 600;
+    font-size: 1.05rem;
+    color: var(--text-primary);
+}
+
+/* ── Flash Alerts ──────────────────────────────────────── */
+
+.alert-flash {
+    border: none;
+    border-radius: 12px;
+    font-size: .9rem;
+    font-weight: 500;
+    backdrop-filter: blur(10px);
+    animation: slideDown .4s ease;
+}
+
+.alert-sucesso {
+    background: rgba(52, 211, 153, .15);
+    color: var(--success);
+}
+
+.alert-erro {
+    background: rgba(248, 113, 113, .15);
+    color: var(--danger);
+}
+
+.alert-info {
+    background: rgba(96, 165, 250, .15);
+    color: var(--info);
+}
+
+@keyframes slideDown {
+    from { opacity: 0; transform: translateY(-12px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Fade-in Animation ─────────────────────────────────── */
+
+.fade-in {
+    animation: fadeIn .5s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Footer ────────────────────────────────────────────── */
+
+footer {
+    color: var(--text-muted);
+    font-size: .8rem;
+}
+
+/* ── Range Input ───────────────────────────────────────── */
+
+.form-range::-webkit-slider-thumb {
+    background: var(--accent);
+}
+
+.form-range::-moz-range-thumb {
+    background: var(--accent);
+    border: none;
+}
+
+/* ── Responsive ────────────────────────────────────────── */
+
+@media (max-width: 768px) {
+    .hero-title { font-size: 1.4rem; }
+    .hero-subtitle { font-size: .9rem; }
+    .page-title { font-size: 1.4rem; }
+}
+
+/* ── Scrollbar ─────────────────────────────────────────── */
+
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--glass-border);
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--accent);
+}
